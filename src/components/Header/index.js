@@ -7,7 +7,7 @@ function Header({ onClickCart }) {
     <header className={styles.header}>
       <Link to="/">
         <div className="d-flex align-center">
-          <img src="/img/logo.png" width={40} height={40} alt="logo" />
+          <img src="/img/logo2.jpg" width={40} height={40} alt="logo" />
           <div>
             <h3 className="text-uppercase">Sneakers Shop</h3>
             <p className="opacity-5">Магазин лучших кроссовок</p>

@@ -8,7 +8,23 @@ function Home({
   onChangeSearchInput,
   onAddToFavorite,
   onAdToCart,
+  isLoading,
 }) {
+  const renderItems = () => {
+    const filtered = items.filter((search) =>
+      search.title.toLowerCase().includes(searchValue.toLowerCase())
+    );
+
+    return (isLoading ? [...Array(12)] : filtered).map((item, index) => (
+      <Card
+        key={index}
+        onFavorite={(obj) => onAddToFavorite(obj)}
+        onPlus={(obj) => onAdToCart(obj)}
+        loading={isLoading}
+        {...item}
+      />
+    ));
+  };
   return (
     <div>
       <div className="content p-40">
@@ -36,20 +52,7 @@ function Home({
             )}
           </div>
         </div>
-        <div className="d-flex flex-wrap">
-          {items
-            .filter((search) =>
-              search.title.toLowerCase().includes(searchValue.toLowerCase())
-            )
-            .map((item, index) => (
-              <Card
-                key={index}
-                onFavorite={(obj) => onAddToFavorite(obj)}
-                onPlus={(obj) => onAdToCart(obj)}
-                {...item}
-              />
-            ))}
-        </div>
+        <div className="d-flex flex-wrap">{renderItems()}</div>
       </div>
     </div>
   );
