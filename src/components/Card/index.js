@@ -67,9 +67,7 @@ function Card({
               {onPlus && (
                 <img
                   src={
-                    isItemAdded(id)
-                      ? "/img/btn-checked.svg"
-                      : "/img/btn-plus.svg"
+                    isItemAdded(id) ? "img/btn-checked.svg" : "img/btn-plus.svg"
                   }
                   alt="plus"
                   width={32}

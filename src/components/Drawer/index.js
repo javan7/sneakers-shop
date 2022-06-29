@@ -95,7 +95,7 @@ function Drawer({ onCloseCart, onRemove, items = [] }) {
                 className={styles.greenButton}
               >
                 Оформить заказ
-                <img src="/img/arrow.svg" alt="arrow" width={14} height={12} />
+                <img src="img/arrow.svg" alt="arrow" width={14} height={12} />
               </button>
             </div>
           </>
@@ -107,7 +107,7 @@ function Drawer({ onCloseCart, onRemove, items = [] }) {
                 ? `Ваш заказ #${orderId} скоро будет передан курьерской доставке`
                 : "Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ."
             }
-            image={isComplete ? "/img/buy.png" : "/img/empty-cart.jpg"}
+            image={isComplete ? "img/buy.png" : "img/empty-cart.jpg"}
           />
         )}
       </div>

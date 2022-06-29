@@ -14,7 +14,7 @@ function Favorites() {
             <Link to="/">
               <img
                 className="mr-20 cu-p"
-                src="/img/back.svg"
+                src="img/back.svg"
                 width={35}
                 height={35}
                 alt="back"
