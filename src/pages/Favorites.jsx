@@ -11,7 +11,7 @@ function Favorites() {
       <div className="content p-40">
         <div className="d-flex justify-between align-center mb-40 ">
           <h1 className="d-flex align-center">
-            <Link to="/">
+            <Link to="">
               <img
                 className="mr-20 cu-p"
                 src="img/back.svg"

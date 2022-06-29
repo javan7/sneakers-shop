@@ -10,7 +10,7 @@ function Header({ onClickCart }) {
 
   return (
     <header className={styles.header}>
-      <Link to="/">
+      <Link to="">
         <div className="d-flex align-center">
           <img src="img/logo2.jpg" width={40} height={40} alt="logo" />
           <div>
