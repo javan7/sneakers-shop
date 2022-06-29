@@ -1,8 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { AppContext } from "../../App";
 import styles from "./Header.module.scss";
 
 function Header({ onClickCart }) {
+  const { cartItems } = React.useContext(AppContext);
+
+  const totalPrice = cartItems.reduce((sum, obj) => obj.price + sum, 0);
+
   return (
     <header className={styles.header}>
       <Link to="/">
@@ -18,7 +23,7 @@ function Header({ onClickCart }) {
         <ul className="d-flex ">
           <li className="mr-30 cu-p " onClick={onClickCart}>
             <img width={18} height={18} src="/img/cart.svg" alt="cart" />
-            <span>2000 руб.</span>
+            <span>{totalPrice} руб.</span>
           </li>
           <li>
             <Link to="favorites">
@@ -32,7 +37,9 @@ function Header({ onClickCart }) {
             </Link>
           </li>
           <li>
-            <img width={18} height={18} src="/img/user.svg" alt="user" />
+            <Link to="orders">
+              <img width={18} height={18} src="/img/user.svg" alt="user" />
+            </Link>
           </li>
         </ul>
       </div>

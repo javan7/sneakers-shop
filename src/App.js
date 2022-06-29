@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Drawer from "./components/Drawer";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
+import Orders from "./pages/Orders";
 import axios from "axios";
 import React, { createContext } from "react";
 
@@ -41,24 +42,40 @@ function App() {
     fetchData();
   }, []);
 
-  const onAdToCart = (obj) => {
-    if (cartItems.find((item) => Number(item.id) === Number(obj.id))) {
+  const onAdToCart = async (obj) => {
+    const findItem = cartItems.find(
+      (item) => Number(item.parentId) === Number(obj.id)
+    );
+    if (findItem) {
       axios.delete(
-        `https://62aba022a62365888bdf249b.mockapi.io/cart/${obj.id}`
+        `https://62aba022a62365888bdf249b.mockapi.io/cart/${findItem.id}`
       );
       setCartItems((prev) =>
-        prev.filter((item) => Number(item.id) !== Number(obj.id))
+        prev.filter((item) => Number(item.parentId) !== Number(obj.id))
       );
     } else {
-      axios.post("https://62aba022a62365888bdf249b.mockapi.io/cart", obj);
       setCartItems((prev) => [...prev, obj]);
+      const { data } = await axios.post(
+        "https://62aba022a62365888bdf249b.mockapi.io/cart",
+        obj
+      );
+      setCartItems((prev) =>
+        prev.map((item) => {
+          if (item.parentId === data.parentId) {
+            return {
+              ...item,
+              id: data.id,
+            };
+          }
+          return item;
+        })
+      );
     }
   };
 
   const onRemoveCartItem = (id) => {
     axios.delete(`https://62aba022a62365888bdf249b.mockapi.io/cart/${id}`);
     setCartItems((prev) => prev.filter((item) => item.id !== id));
-    console.log(id);
   };
 
   const onChangeSearchInput = (event) => setSearchValue(event.target.value);
@@ -82,7 +99,7 @@ function App() {
   };
 
   const isItemAdded = (id) => {
-    return cartItems.some((obj) => Number(obj.id) === Number(id));
+    return cartItems.some((obj) => Number(obj.parentId) === Number(id));
   };
   return (
     <BrowserRouter>
@@ -125,6 +142,7 @@ function App() {
               }
             ></Route>
             <Route path="favorites" element={<Favorites />}></Route>
+            <Route path="orders" element={<Orders />}></Route>
           </Routes>
         </div>
       </AppContext.Provider>
