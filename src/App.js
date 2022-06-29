@@ -127,7 +127,7 @@ function App() {
 
           <Routes>
             <Route
-              path=""
+              path="sneakers-shop"
               element={
                 <Home
                   items={items}
@@ -141,8 +141,11 @@ function App() {
                 />
               }
             ></Route>
-            <Route path="favorites" element={<Favorites />}></Route>
-            <Route path="orders" element={<Orders />}></Route>
+            <Route
+              path="sneakers-shop/favorites"
+              element={<Favorites />}
+            ></Route>
+            <Route path="sneakers-shop/orders" element={<Orders />}></Route>
           </Routes>
         </div>
       </AppContext.Provider>
