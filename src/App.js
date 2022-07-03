@@ -6,6 +6,7 @@ import Favorites from "./pages/Favorites";
 import Orders from "./pages/Orders";
 import axios from "axios";
 import React, { createContext } from "react";
+import Layout from "./pages/Layout";
 
 export const AppContext = createContext({});
 
@@ -126,26 +127,25 @@ function App() {
           <Header onClickCart={() => setCartOpened(true)} />
 
           <Routes>
-            <Route
-              path="sneakers-shop/"
-              element={
-                <Home
-                  items={items}
-                  searchValue={searchValue}
-                  setSearchValue={setSearchValue}
-                  onChangeSearchInput={onChangeSearchInput}
-                  onAddToFavorite={onAddToFavorite}
-                  onAdToCart={onAdToCart}
-                  cartItems={cartItems}
-                  isLoading={isLoading}
-                />
-              }
-            ></Route>
-            <Route
-              path="sneakers-shop/favorites/"
-              element={<Favorites />}
-            ></Route>
-            <Route path="sneakers-shop/orders/" element={<Orders />}></Route>
+            <Route path="/" element={<Layout />}>
+              <Route
+                index
+                element={
+                  <Home
+                    items={items}
+                    searchValue={searchValue}
+                    setSearchValue={setSearchValue}
+                    onChangeSearchInput={onChangeSearchInput}
+                    onAddToFavorite={onAddToFavorite}
+                    onAdToCart={onAdToCart}
+                    cartItems={cartItems}
+                    isLoading={isLoading}
+                  />
+                }
+              ></Route>
+              <Route path="favorites/" element={<Favorites />}></Route>
+              <Route path="orders/" element={<Orders />}></Route>
+            </Route>
           </Routes>
         </div>
       </AppContext.Provider>

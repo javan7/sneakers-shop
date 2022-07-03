@@ -47,7 +47,7 @@ function Card({
             {onFavorite && (
               <img
                 src={
-                  isFavorite ? "img/heard-liked.svg" : "img/heard-unliked.svg"
+                  isFavorite ? "/img/heard-liked.svg" : "/img/heard-unliked.svg"
                 }
                 alt="unliked"
                 width={32}
@@ -67,7 +67,9 @@ function Card({
               {onPlus && (
                 <img
                   src={
-                    isItemAdded(id) ? "img/btn-checked.svg" : "img/btn-plus.svg"
+                    isItemAdded(id)
+                      ? "/img/btn-checked.svg"
+                      : "/img/btn-plus.svg"
                   }
                   alt="plus"
                   width={32}
