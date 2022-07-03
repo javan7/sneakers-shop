@@ -10,7 +10,7 @@ function Header({ onClickCart }) {
 
   return (
     <header className={styles.header}>
-      <Link to="/">
+      <Link to="">
         <div className="d-flex align-center">
           <img src="/img/logo2.jpg" width={40} height={40} alt="logo" />
           <div>
@@ -26,7 +26,7 @@ function Header({ onClickCart }) {
             <span>{totalPrice} руб.</span>
           </li>
           <li>
-            <Link to="favorites/">
+            <Link to="favorites">
               <img
                 className="cu-p"
                 width={18}
@@ -37,7 +37,7 @@ function Header({ onClickCart }) {
             </Link>
           </li>
           <li>
-            <Link to="orders/">
+            <Link to="orders">
               <img width={18} height={18} src="/img/user.svg" alt="user" />
             </Link>
           </li>

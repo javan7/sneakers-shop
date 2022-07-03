@@ -127,7 +127,7 @@ function App() {
           <Header onClickCart={() => setCartOpened(true)} />
 
           <Routes>
-            <Route path="/" element={<Layout />}>
+            <Route path="" element={<Layout />}>
               <Route
                 index
                 element={
@@ -143,8 +143,8 @@ function App() {
                   />
                 }
               ></Route>
-              <Route path="favorites/" element={<Favorites />}></Route>
-              <Route path="orders/" element={<Orders />}></Route>
+              <Route path="favorites" element={<Favorites />}></Route>
+              <Route path="orders" element={<Orders />}></Route>
             </Route>
           </Routes>
         </div>

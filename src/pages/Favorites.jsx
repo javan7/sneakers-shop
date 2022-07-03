@@ -8,19 +8,21 @@ function Favorites() {
     React.useContext(AppContext);
   return (
     <>
-      <h1 className="d-flex align-center">
-        <Link to="/">
-          <img
-            className="mr-20 cu-p"
-            src="img/back.svg"
-            width={35}
-            height={35}
-            alt="back"
-          />
-        </Link>
-        Мои закладки
-      </h1>
-      <div className="d-flex flex-wrap">
+      <div className="d-flex justify-between align-center mb-40 ">
+        <h1 className="d-flex align-center">
+          <Link to="/">
+            <img
+              className="mr-20 cu-p"
+              src="img/back.svg"
+              width={35}
+              height={35}
+              alt="back"
+            />
+          </Link>
+          Мои закладки
+        </h1>
+      </div>
+      <div className="d-flex ml-40 flex-wrap">
         {favorites.map((item, index) => (
           <Card
             key={index}
