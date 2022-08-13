@@ -37,8 +37,6 @@ function App() {
       setCartItems(cartResponse.data);
       setFavorites(favoritesResponse.data);
       setItems(itemsResponse.data);
-
-      console.log(favoritesResponse.data);
     }
     fetchData();
   }, []);
@@ -84,11 +82,11 @@ function App() {
   const onAddToFavorite = (obj) => {
     try {
       if (favorites.find((favObj) => Number(favObj.id) === Number(obj.id))) {
-        axios.delete(
-          `https://62aba022a62365888bdf249b.mockapi.io/favorite/${obj.id}`
-        );
         setFavorites((prev) =>
           prev.filter((item) => Number(item.id) !== Number(obj.id))
+        );
+        axios.delete(
+          `https://62aba022a62365888bdf249b.mockapi.io/favorite/${obj.id}`
         );
       } else {
         axios.post("https://62aba022a62365888bdf249b.mockapi.io/favorite", obj);

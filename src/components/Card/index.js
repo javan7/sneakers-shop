@@ -22,8 +22,7 @@ function Card({
   };
   const onClickFavorite = () => {
     onFavorite({ id, title, parentId: id, price, imageUrl });
-    setIsFavorite(!isFavorite);
-    // console.log(isFavorite);
+    !isFavorite && setIsFavorite(!isFavorite);
   };
   return (
     <div className={styles.card}>
