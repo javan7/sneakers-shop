@@ -12,7 +12,7 @@ function Favorites() {
         <h1 className="d-flex align-center">
           <Link to="/">
             <img
-              className="mr-20 cu-p"
+              className="ml-20 mr-20 cu-p"
               src="img/back.svg"
               width={35}
               height={35}
